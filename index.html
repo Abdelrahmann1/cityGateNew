@@ -37,20 +37,23 @@
 
 
     </section>
-    <section>
-        <div class="tabs-row">
-            <div class="tab-item">
-                <span>المميزات</span>
-            </div>
-            <div class="tab-item">
-                <span>الموقع</span>
-            </div>
-            <div class="tab-item">
-                <span>الوحدات المتوفرة</span>
-            </div>
-        </div>
+   <!-- Tabs Row -->
+<section class="tabs">
+    <div class="tabs-row">
+      <a href="#services" class="tab-item">
+        <span>المميزات</span>
+      </a>
+      <a href="#location" class="tab-item">
+        <span>الموقع</span>
+      </a>
+      <a href="#units" class="tab-item">
+        <span>الوحدات المتوفرة</span>
+      </a>
+    </div>
+  </section>
+  
 
-    </section>
+  
     <!-- Booking Form -->
     <section class="booking">
         <h2>تسجيل البيانات</h2>
@@ -60,7 +63,7 @@
       " required dir="rtl">
         </form>
         <br>
-        <button type="submit2">تسجيل</button>
+        <button type="submit">تسجيل</button>
 
     </section>
     <!-- Gallery Slider -->
@@ -89,7 +92,7 @@
 
 
     <!-- Units Section -->
-    <section class="units">
+    <section class="units" id="units">
         <div class="divider">
             <span></span>
             <img src="assets/img/logo.png" style="width: 40px;" alt="شعار">
@@ -116,10 +119,7 @@
                 <h3>Standalone Villas</h3>
                 <img src="assets/img/clients/4.jpg" alt="فيلا منفصلة">
             </div>
-            <div class="unit-item">
-                <h3>Woodhouses</h3>
-                <img src="assets/img/clients/5.jpg" alt="منزل خشبي">
-            </div>
+           
         </div>
     </section>
 
@@ -128,7 +128,7 @@
         <div class="map">
             <img src="assets/img/citygatemap750x524.png" alt="خريطة موقع كمبوند الديار القطرية">
         </div>
-        <div class="location-info">
+        <div class="location-info" id="location">
             <h2>موقع الديار القطرية</h2>
             <p>
                 - يتمتع كمبوند سيتي جيت بموقع فريد يجمع بين <strong>القاهرة الجديدة</strong> و<strong>العاصمة الإدارية
@@ -145,7 +145,7 @@
     </section>
 
     <!-- Services -->
-    <section class="services">
+    <section class="services" id="services">
         <h2>خدمات ومميزات كمبوند الديار القطرية</h2>
         <div class="services-content">
             <div class="services-text">
@@ -230,16 +230,42 @@
             <img src="assets/img/logo.png" style="width: 40px;" alt="">
             <span></span>
         </div>
+        <section class="contact-form-section" dir="rtl">
+            <div class="form-container">
+                <h2>تواصل معنا</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">الاسم الكامل</label>
+                        <input type="text" id="name" name="name" placeholder="اكتب اسمك هنا" required>
+                    </div>
 
-        <form class="booking-form">
-            <input type="text" placeholder="الاسم" required>
-            <input type="tel" placeholder="رقم الهاتف" required>
-        </form>
-        <button type="submit">تسجيل</button>
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف</label>
+                        <input type="tel" id="phone" name="phone" placeholder="اكتب رقم هاتفك هنا" required dir="rtl">
+                    </div>
+
+                    <button type="submit">إرسال</button>
+                </form>
+            </div>
+        </section>
+
 
 
 
     </section>
+    <!-- Floating Contact Icons -->
+    <div class="floating-icons">
+        <a href="https://wa.me/201050564000?text=مرحبًا%20👋%0Aأرغب%20في%20الاستفسار%20عن%20معرض%20Nile%20Property%20Expo%20القادم."
+            target="_blank" class="circle-btn" aria-label="واتساب Nile Property Expo">
+            <img src="assets/img/whatsapp.png" alt="واتساب Nile Property Expo">
+        </a>
+        <!-- Phone call button -->
+        <a href="tel:+201050564000" class="circle-btn">
+            <img src="assets/img/phone-call.png" alt="Phone">
+        </a>
+
+
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -249,44 +275,15 @@
             </div>
             <div class="footer-contact">
                 <h3>اتصل بنا لمزيد من المعلومات</h3>
-                <a href="https://wa.me/201111113974" class="phone-btn">+201111113974</a>
+                <a href="https://wa.me/201050564000" class="phone-btn">01050564000</a>
             </div>
+            
         </div>
         <div class="footer-bottom">
-            <p>All Rights Reserved © The Brokery | Privacy Policy & Terms of Service</p>
+            <p> هذه الصفحة ملك لشركة تسويق عقاري وليست الصفحة الرسمية. جميع الحقوق محفوظة © 2025</p>
         </div>
     </footer>
-    <script>
-        const slider = document.querySelector('.slider');
-        const container = document.querySelector('.slider-container');
 
-        let scrollSpeed = 1; // pixels per frame (higher = faster)
-        let isPaused = false;
-
-        function autoScroll() {
-            if (!isPaused) {
-                slider.scrollLeft += scrollSpeed;
-
-                // When the first image fully scrolls out of view
-                const firstImg = slider.querySelector('img');
-                if (slider.scrollLeft >= firstImg.clientWidth + 10) {
-                    // Move that image to the end
-                    slider.appendChild(firstImg);
-                    // Reset scroll position to avoid jumps
-                    slider.scrollLeft -= firstImg.clientWidth + 10;
-                }
-            }
-            requestAnimationFrame(autoScroll);
-        }
-
-        // Start the auto-scroll
-        autoScroll();
-
-        // Pause on hover
-        container.addEventListener('mouseenter', () => isPaused = true);
-        container.addEventListener('mouseleave', () => isPaused = false);
-
-    </script>
 
 </body>
 

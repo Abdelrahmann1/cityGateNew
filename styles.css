@@ -244,25 +244,28 @@
   }
   
   button[type="submit"] {
-    background: var(--primary); /* #201747 */
-    color: white;
+    background: var(--bg-light); /* #201747 */
+    color: var(--primary);
     border: none;
     padding: 14px 36px;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 600;
     border-radius: 50px; /* Fully rounded for elegance */
     cursor: pointer;
+    width: 40%;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(32, 23, 71, 0.25);
     position: relative;
     overflow: hidden;
     letter-spacing: 0.5px;
+    font-weight: 900;
   }
   
   button[type="submit"]:hover {
-    background: var(--primary-light); /* #2d2062 */
+    background: var(--bg-light); /* #2d2062 */
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(32, 23, 71, 0.35);
+    color: #000;
   }
   
   button[type="submit"]:active {
@@ -288,51 +291,84 @@
     outline: none;
   }
 
-  button[type="submit2"] {
-    background: var(--bg-light); /* #201747 */
-    color: var(--primary);
-    border: none;
-    padding: 14px 36px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 50px; /* Fully rounded for elegance */
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(32, 23, 71, 0.25);
-    position: relative;
-    overflow: hidden;
-    letter-spacing: 0.5px;
-  }
   
-  button[type="submit2"]:hover {
-    background: var(--primary-light); /* #2d2062 */
-    transform: translateY(-2px);
-    color:wheat;
-    box-shadow: 0 6px 20px rgba(32, 23, 71, 0.35);
-  }
-  
-  button[type="submit2"]:active {
-    transform: translateY(0);
-  }
   
   /* Optional: Add subtle ripple effect on click */
-  button[type="submit2"]::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 5px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.5);
-    opacity: 0;
-    border-radius: 100%;
-    transform: scale(1, 1) translate(-50%);
-    transform-origin: 50% 50%;
+  .contact-form-section {
+    background: #f9f9f9;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Tajawal', sans-serif;
   }
   
-  button[type="submit2"]:focus {
-    outline: none;
+  .form-container {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
   }
+  
+  .form-container h2 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: right;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #444;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid var(--primary);
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-family: inherit;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form-group input:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 8px rgba(125, 177, 67, 0.3);
+  }
+  
+  button {
+    background: var(--primary);
+    border: none;
+    padding: 12px 20px;
+    width: 100%;
+    border-radius: 10px;
+    color: #543A14;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+  }
+  
   
   
   .controls button {
@@ -449,6 +485,7 @@
   .location-info p {
     font-size: 1.1rem;
     color: var(--text-dark);
+    text-align: right;
   }
   
   /* Services */
@@ -830,3 +867,43 @@
     max-width: 900px;
     margin: 0 auto;
   }
+
+
+.floating-icons {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  /* من اليسار */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 9999;
+}
+
+.floating-icons a {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  /* واتساب */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.floating-icons a.phone {
+  background: #fff;
+  /* تليفون */
+}
+
+.floating-icons a img {
+  width: 28px;
+  height: 28px;
+}
+
+.floating-icons a:hover {
+  transform: scale(1.1);
+}
