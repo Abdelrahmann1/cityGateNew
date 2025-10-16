@@ -47,7 +47,7 @@ async function handleSubmit(e, sheet) {
         phone.value = "";
         email.value = "";
   
-          window.location.href = 'thank_you.html';
+        alert("✅ تم إرسال النموذج بنجاح! شكرًا لتواصلك معنا.");
   
       } else {
         throw new Error(result.error || "Submission failed");

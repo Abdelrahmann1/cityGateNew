@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // Get form data
 $name = trim($_POST['name'] ?? '');
 $phone = trim($_POST['phone'] ?? '');
-$email = trim($_POST['email'] ?? '');
+// $email = trim($_POST['email'] ?? '');
 $compound = trim($_POST['compound'] ?? '');
 
 if (empty($name) || empty($phone) || empty($compound)) {
@@ -29,7 +29,6 @@ $scriptURL = "https://script.google.com/macros/s/AKfycby5io5W_E8_PHm9XkFC1JqX7LX
 $postData = http_build_query([
     'Name' => $name,
     'Phone' => $phone,
-    'Email' => $email,
     'Compound' => $compound
 ]);
 
