@@ -28,7 +28,7 @@ async function handleSubmit(e, sheet) {
     progressContainer.classList.remove("d-none");
   
     try {
-      const response = await fetch('../../submit-sheet.php', {
+      const response = await fetch('./submit-sheet.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',

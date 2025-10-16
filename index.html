@@ -112,12 +112,12 @@
     <!-- Booking Form -->
     <section class="booking">
         <h2>تسجيل البيانات</h2>
-        <form>
+        <form onsubmit="handleSubmit(event,'CityGate All In House')">
             <input type="text" name="name" placeholder="الاسم" required>
             <input type="tel" placeholder="رقم الهاتف *" name="phone" required dir="rtl">
         </form>
         <br>
-        <button type="submit"  onsubmit="handleSubmit(event,'CityGate All In House')">تسجيل</button>
+        <button type="submit">تسجيل</button>
 
     </section>
     <!-- Gallery Slider -->
@@ -292,7 +292,7 @@
 
             <div class="form-container">
                 <h2>تواصل معنا</h2>
-                <form id="contactForm">
+                <form onsubmit="handleSubmit(event,'CityGate All In House')">
                     <div class="form-group">
                         <label for="name">الاسم الكامل</label>
                         <input type="text" id="name" name="name" placeholder="اكتب اسمك هنا" required>
@@ -303,7 +303,7 @@
                         <input type="tel" id="phone" name="phone" placeholder="اكتب رقم هاتفك هنا" required dir="rtl">
                     </div>
 
-                    <button type="submit" onsubmit="handleSubmit(event,'CityGate All In House')">إرسال</button>
+                    <button type="submit" >إرسال</button>
                 </form>
             </div>
         </section>
