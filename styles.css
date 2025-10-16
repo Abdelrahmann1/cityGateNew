@@ -204,27 +204,43 @@
     text-align: center;
     margin: 20px 0;
   }
-  
   .slider-container {
     width: 100%;
-    overflow: hidden;
+    overflow-x: auto; /* Enable horizontal scroll on mobile */
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scroll-behavior: smooth;
     position: relative;
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  /* Hide scrollbar for all browsers */
+  .slider-container::-webkit-scrollbar {
+    display: none;
   }
   
   .slider {
     display: flex;
-    /* width: calc(250px * 20); */
-    animation: scroll 40s linear infinite;
+    width: max-content; /* Let content define width */
+    gap: 20px; /* Instead of margin on images */
+    padding: 10px 0;
+  }
+  
+  /* On desktop: auto-scroll */
+  @media (hover: hover) and (pointer: fine) {
+    .slider {
+      animation: scroll 40s linear infinite;
+    }
+  
+    .slider-container:hover .slider {
+      animation-play-state: paused;
+    }
   }
   
   .slider img {
     width: 250px;
-    flex-shrink: 0; /* Critical: prevents images from compressing */
-    overflow-x: auto; /* Enable horizontal scroll on mobile */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    scrollbar-width: none; /* Firefox */
     height: 180px;
-    margin: 0 10px;
+    flex-shrink: 0;
     border-radius: 12px;
     object-fit: cover;
     transition: transform 0.3s ease;
@@ -234,22 +250,14 @@
     transform: scale(1.05);
   }
   
-  /* Animation keyframes */
   @keyframes scroll {
     0% {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-1350px);
-      /* transform: translateX(-50%); */
+      transform: translateX(calc(-100% + 100vw));
     }
   }
-  
-  /* Optional: pause on hover */
-  .slider-container:hover .slider {
-    animation-play-state: paused;
-  }
-  
   button[type="submit"] {
     background: var(--bg-light); /* #201747 */
     color: var(--primary);
@@ -970,53 +978,53 @@
   flex-direction: row-reverse;
 }
 
-.submit-btn {
-  position: relative;
-  background: #4361ee;
-  color: white;
-  border: none;
-  padding: 14px 32px;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 50px;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
-  letter-spacing: 0.5px;
-}
+        .submit-btn {
+            position: relative;
+            background: #4361ee;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            letter-spacing: 0.5px;
+        }
 
-.submit-btn:hover {
-  background: #3a56e4;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
-}
+        .submit-btn:hover {
+            background: #3a56e4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
+        }
 
-.submit-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 10px rgba(67, 97, 238, 0.3);
-}
+        .submit-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(67, 97, 238, 0.3);
+        }
 
-.submit-btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.4);
-}
+        .submit-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.4);
+        }
 
-/* Ripple effect */
-.submit-btn::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
+        /* Ripple effect */
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
 
-.submit-btn:active::before {
-  width: 300px;
-  height: 300px;
-}
+        .submit-btn:active::before {
+            width: 300px;
+            height: 300px;
+        }
