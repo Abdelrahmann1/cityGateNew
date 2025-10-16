@@ -43,7 +43,7 @@ async function handleSubmit(e, sheet) {
     // Show progress bar
   
     try {
-      const response = await fetch('../submit-sheet.php', {
+      const response = await fetch('./submit-sheet.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -59,7 +59,7 @@ async function handleSubmit(e, sheet) {
       if (result.success) {
         name.value = "";
         phone.value = "";
-          window.location.href = 'thank-you.html';
+          window.location.href = './thank-you.html';
           
   
       } else {
